@@ -29,7 +29,7 @@ all: PCSE_Bluetooth.elf
 PCSE_Bluetooth.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/snorkman/LPCXpresso/borra/lpc_chip_43xx/Debug" -L"/home/snorkman/LPCXpresso/borra/lpc_board_nxp_lpcxpresso_4337/Debug" -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T monitor_bat_Debug.ld -o "PCSE_Bluetooth.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/home/snorkman/LPCXpresso/borra/lpc_chip_43xx/Debug" -L"/home/snorkman/LPCXpresso/borra/lpc_board_nxp_lpcxpresso_4337/Debug" -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T PCSE_Bluetooth.ld -o "PCSE_Bluetooth.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

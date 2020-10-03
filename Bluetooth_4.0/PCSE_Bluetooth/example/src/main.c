@@ -53,6 +53,22 @@ int main(void)
 				break;
 			}
 		}
+
+		if (!Chip_GPIO_GetPinState(LPC_GPIO_PORT, KEY2[0], KEY2[1]))
+		{
+			if(!Chip_GPIO_GetPinState(LPC_GPIO_PORT, LED1[0], LED1[1]))//led encendido?
+			{
+				Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], true);//apago led
+				manda_aviso_led_ON();
+				delay_ms(600);
+			}
+			else
+			{
+				Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);//enciendo led
+				manda_aviso_led_OFF();
+				delay_ms(600);
+			}
+		}
 	}
 	return 0;
 }
